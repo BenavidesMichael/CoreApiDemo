@@ -6,9 +6,8 @@ namespace CoreApiDemo.Contracts
 {
     public interface IAuthRepository
     {
-        Task<AuthResponse> LoginAsync(Login model);
+        Task<AuthResponse> LoginAsync(string email);
         Task<bool> IsLoginAccesCorrectAsync(Login model);
         Task<IdentityResult> RegisterAsync(Register model);
-        Task LogoutAsync();
     }
 }

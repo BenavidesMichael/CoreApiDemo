@@ -30,7 +30,7 @@ namespace CoreApiDemo.Controllers
             if (!isCorrect)
                 return Unauthorized();
 
-            return Ok(await _authRepository.LoginAsync(model));
+            return Ok(await _authRepository.LoginAsync(model.Email));
         }
 
 
@@ -53,8 +53,7 @@ namespace CoreApiDemo.Controllers
         public async Task<ActionResult<AuthResponse>> RefreshToken()
         {
             var emailClaim = HttpContext.User.Claims.Where(x => x.Type == "email").FirstOrDefault();
-            var user = new Login() { Email = emailClaim.Value };
-            return Ok(await _authRepository.LoginAsync(user));
+            return Ok(await _authRepository.LoginAsync(emailClaim.Value));
         }
     }
 }

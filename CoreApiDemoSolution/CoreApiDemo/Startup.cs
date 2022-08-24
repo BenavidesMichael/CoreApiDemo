@@ -23,6 +23,7 @@ namespace CoreApiDemo
             services.AddDataBase(Configuration);
             services.AddIdentity(Configuration);
             services.AddHttpContextAccessor();
+            services.AddCorsExtention();
             services.AddControllers();
             services.AddRepositories();
             services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
@@ -40,6 +41,8 @@ namespace CoreApiDemo
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthentication();
             app.UseAuthorization();
