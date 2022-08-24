@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CoreApiDemo.Models;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreApiDemo.Infrastructure
@@ -7,7 +8,7 @@ namespace CoreApiDemo.Infrastructure
     {
         public static IServiceCollection GetAppSettingsValues(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.Configure<PaginationSetting>(opt => configuration.GetSection("Pagination").Bind(opt));
+            services.Configure<SettingsConfig>(opt => configuration.GetSection("SettingsConfig").Bind(opt));
             return services;
         }
     }

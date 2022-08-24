@@ -33,7 +33,7 @@ namespace CoreApiDemo.Services
             var key = Encoding.ASCII.GetBytes(_settingsConfig.SecretKeyToken);
 
             // claims 
-            var user = await _userManager.FindByNameAsync(email);
+            var user = await _userManager.FindByEmailAsync(email);
             var roles = await _userManager.GetRolesAsync(user);
             var claims = new List<Claim>
             {
@@ -78,7 +78,7 @@ namespace CoreApiDemo.Services
 
         public async Task<bool> IsLoginAccesCorrectAsync(Login model)
         {
-            var user = await _userManager.FindByNameAsync(model.Email);
+            var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user == null)
                 return false;

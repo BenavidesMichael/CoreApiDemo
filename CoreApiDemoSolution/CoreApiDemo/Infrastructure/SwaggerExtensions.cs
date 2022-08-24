@@ -18,13 +18,14 @@ namespace CoreApiDemo.Infrastructure
                 c.IncludeXmlComments(xmlPath);
 
                 // Authorization Sawagger
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                c.AddSecurityDefinition("bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header
+                    Description = "Please enter token",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    BearerFormat = "JWT"
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement()
                 {
@@ -34,7 +35,7 @@ namespace CoreApiDemo.Infrastructure
                             Reference = new OpenApiReference()
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
+                                Id = "bearer"
                             }
                         },
                         new string[] {}

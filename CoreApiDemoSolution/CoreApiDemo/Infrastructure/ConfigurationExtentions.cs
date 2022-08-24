@@ -34,7 +34,7 @@ namespace CoreApiDemo.Infrastructure
                         ValidateAudience = false,
                         ValidateLifetime = false,
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SettingsConfig::SecretKeyToken"]))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SettingsConfig:SecretKeyToken"]))
                     });
 
             services.AddIdentity<IdentityUser, IdentityRole>()

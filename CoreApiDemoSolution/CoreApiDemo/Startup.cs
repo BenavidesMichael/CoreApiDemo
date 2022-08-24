@@ -26,6 +26,7 @@ namespace CoreApiDemo
             services.AddCorsExtention();
             services.AddControllers();
             services.AddRepositories();
+            services.GetAppSettingsValues(Configuration);
             services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
         }
 
