@@ -21,6 +21,7 @@ namespace CoreApiDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDataBase(Configuration);
+            services.AddIdentity(Configuration);
             services.AddControllers();
             services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
         }
@@ -38,6 +39,7 @@ namespace CoreApiDemo
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
