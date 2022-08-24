@@ -1,7 +1,10 @@
 ﻿using CoreApiDemo.Contracts;
 using CoreApiDemo.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CoreApiDemo.Controllers
@@ -43,5 +46,15 @@ namespace CoreApiDemo.Controllers
             return StatusCode(201);
         }
 
+
+        [HttpGet(nameof(RefreshToken))]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [SwaggerOperation(Summary = "Refresh Token", Description = "Refresh Token")]
+        public async Task<ActionResult<AuthResponse>> RefreshToken()
+        {
+            var emailClaim = HttpContext.User.Claims.Where(x => x.Type == "email").FirstOrDefault();
+            var user = new Login() { Email = emailClaim.Value };
+            return Ok(await _authRepository.LoginAsync(user));
+        }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using CoreApiDemo.Contracts;
 using CoreApiDemo.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,20 +34,22 @@ namespace CoreApiDemo.Services
 
         public async Task<AuthResponse> LoginAsync(Login model)
         {
+            var user = await _userManager.FindByNameAsync(model.Email);
+            var roles = await _userManager.GetRolesAsync(user);
+
             // authentication successful so generate jwt token
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_settingsConfig.SecretKeyToken);
-
-            var user = await _userManager.FindByNameAsync(model.Email);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    new Claim(ClaimTypes.Name, user.UserName)
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Role.ToList(), roles),
                 }),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
@@ -90,7 +96,6 @@ namespace CoreApiDemo.Services
 
             return true;
         }
-
-
+      
     }
 }
