@@ -23,6 +23,7 @@ namespace CoreApiDemo
             services.AddDataBase(Configuration);
             services.AddIdentity(Configuration);
             services.AddControllers();
+            services.AddRepositories();
             services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
         }
 

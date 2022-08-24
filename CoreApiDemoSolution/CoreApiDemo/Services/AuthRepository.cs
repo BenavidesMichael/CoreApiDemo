@@ -1,4 +1,5 @@
-﻿using CoreApiDemo.Models;
+﻿using CoreApiDemo.Contracts;
+using CoreApiDemo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CoreApiDemo.Services
 {
-    public class AuthRepository
+    public class AuthRepository : IAuthRepository
     {
         private readonly SettingsConfig _settingsConfig;
         private readonly UserManager<IdentityUser> _userManager;
