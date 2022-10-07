@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -20,7 +18,7 @@ namespace CoreApiDemo.Infrastructure
         public static IServiceCollection AddDataBase(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDbContext<NetCoreApiDemoContext>(options
-                    => options.UseSqlServer(Configuration.GetDefaultConnectionString("DemoApi"), 
+                    => options.UseSqlServer(Configuration.GetDefaultConnectionString("DemoApi"),
                                             sqlserver => sqlserver.UseNetTopologySuite()));
             return services;
         }

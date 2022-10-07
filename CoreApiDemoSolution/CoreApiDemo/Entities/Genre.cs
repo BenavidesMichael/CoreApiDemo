@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace CoreApiDemo.Entities
+﻿namespace CoreApiDemo.Entities
 {
     //[Table(nameof(Genre), Schema = "Movie")]
     public class Genre

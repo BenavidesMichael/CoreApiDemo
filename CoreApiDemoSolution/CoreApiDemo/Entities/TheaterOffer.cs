@@ -7,7 +7,7 @@
         public DateTime EndDate { get; set; }
         public decimal Discount { get; set; }
 
-        public int TheatherId { get; set; }
+        public int TheaterId { get; set; }
         public Theater Theater { get; set; }
     }
 }

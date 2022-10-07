@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoreApiDemo.Models
+﻿namespace CoreApiDemo.Models
 {
     public class AuthResponse
     {

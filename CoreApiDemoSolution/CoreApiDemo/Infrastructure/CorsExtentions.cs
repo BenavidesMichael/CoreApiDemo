@@ -1,12 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace CoreApiDemo.Infrastructure
+﻿namespace CoreApiDemo.Infrastructure
 {
     public static class CorsExtentions
     {
         public static IServiceCollection AddCorsExtention(this IServiceCollection services)
         {
-            services.AddCors(opt => opt.AddDefaultPolicy(builder => 
+            services.AddCors(opt => opt.AddDefaultPolicy(builder =>
             {
                 builder.WithOrigins("https://*")
                        .AllowAnyOrigin()

@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-using System;
-using System.IO;
+﻿using Microsoft.OpenApi.Models;
 
 namespace CoreApiDemo.Infrastructure
 {
@@ -30,7 +26,7 @@ namespace CoreApiDemo.Infrastructure
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement()
                 {
                     {
-                        new OpenApiSecurityScheme() 
+                        new OpenApiSecurityScheme()
                         {
                             Reference = new OpenApiReference()
                             {

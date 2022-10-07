@@ -11,7 +11,7 @@ namespace CoreApiDemo.Entities.Configuration
 
             theater.HasOne(t => t.TheaterOffer)
                     .WithOne(i => i.Theater)
-                    .HasForeignKey<TheaterOffer>(t => t.TheatherId);
+                    .HasForeignKey<TheaterOffer>(t => t.TheaterId);
             
             theater.Property(n => n.Name).IsRequired();
         }

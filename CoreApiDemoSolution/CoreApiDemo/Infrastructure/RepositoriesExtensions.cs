@@ -1,6 +1,5 @@
 ﻿using CoreApiDemo.Contracts;
 using CoreApiDemo.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreApiDemo.Infrastructure
 {
@@ -9,6 +8,7 @@ namespace CoreApiDemo.Infrastructure
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddTransient<IAuthRepository, AuthRepository>();
+            services.AddTransient<IGenreRepository, GenreRepository>();
             return services;
         }
     }

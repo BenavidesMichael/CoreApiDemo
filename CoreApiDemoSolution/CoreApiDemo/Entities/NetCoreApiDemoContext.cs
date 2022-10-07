@@ -1,5 +1,4 @@
-﻿using CoreApiDemo.Entities.Configuration;
-using CoreApiDemo.Entities.Configuration.Conventions;
+﻿using CoreApiDemo.Entities.Configuration.Conventions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -31,6 +30,7 @@ namespace CoreApiDemo.Entities
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            DataSeed.Seed(builder);
         }
     }
 }

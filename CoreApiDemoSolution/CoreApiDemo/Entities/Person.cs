@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoreApiDemo.Entities
+﻿namespace CoreApiDemo.Entities
 {
     public class Person
     {
