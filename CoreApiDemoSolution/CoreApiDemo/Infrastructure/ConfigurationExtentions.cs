@@ -20,7 +20,8 @@ namespace CoreApiDemo.Infrastructure
         public static IServiceCollection AddDataBase(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDbContext<NetCoreApiDemoContext>(options
-                    => options.UseSqlServer(Configuration.GetDefaultConnectionString("NetCoreApiDemoConnectionString")));
+                    => options.UseSqlServer(Configuration.GetDefaultConnectionString("DemoApi"), 
+                                            sqlserver => sqlserver.UseNetTopologySuite()));
             return services;
         }
 

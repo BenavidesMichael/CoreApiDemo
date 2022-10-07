@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>9e8306a4-ddf5-4304-a1da-380bdaf5363d</UserSecretsId>
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	<NoWarn>$(NoWarn);1591</NoWarn>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,17 +17,18 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
