@@ -20,5 +20,16 @@ namespace CoreApiDemo.Services
                 Name = g.Name,
             }).ToListAsync();
         }
+
+        public async Task<Models.Genre> GetGenreById(int id)
+        {
+            return await _context.Genres
+                                 .Where(x => x.Id == id)
+                                 .Select(g => new Models.Genre
+                                 {
+                                     Name = g.Name,
+                                 })
+                                 .FirstOrDefaultAsync();
+        }
     }
 }
