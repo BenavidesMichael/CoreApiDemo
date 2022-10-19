@@ -21,6 +21,7 @@ namespace CoreApiDemo.Controllers
             return Ok(await _genreRepository.GetAllGenres());
         }
 
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Models.Genre>> GetGenreById(int id)
         {
