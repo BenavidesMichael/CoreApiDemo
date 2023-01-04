@@ -1,6 +1,5 @@
 ﻿using CoreApiDemo.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
 
 namespace CoreApiDemo.Contracts
 {

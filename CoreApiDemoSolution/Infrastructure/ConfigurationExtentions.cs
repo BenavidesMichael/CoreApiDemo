@@ -17,9 +17,15 @@ namespace CoreApiDemo.Infrastructure
 
         public static IServiceCollection AddDataBase(this IServiceCollection services, IConfiguration Configuration)
         {
-            services.AddDbContext<NetCoreApiDemoContext>(options => 
+            services.AddDbContext<NetCoreApiDemoContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetDefaultConnectionString("DemoApi"), sqlserver => sqlserver.UseNetTopologySuite());
+                options.UseSqlServer(
+                    Configuration.GetDefaultConnectionString("DemoApi"),
+                    sqlserver =>
+                    {
+                        sqlserver.UseNetTopologySuite();
+                        sqlserver.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                    });
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // AsNoTracking Global ⇒ query read only
             });
             return services;

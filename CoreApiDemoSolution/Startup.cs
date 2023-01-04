@@ -1,5 +1,8 @@
 using CoreApiDemo.Infrastructure;
+using Microsoft.Extensions.Options;
 using System.Reflection;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CoreApiDemo
 {
@@ -19,7 +22,11 @@ namespace CoreApiDemo
             services.AddIdentity(Configuration);
             services.AddHttpContextAccessor();
             services.AddCorsExtention();
-            services.AddControllers();
+            services.AddControllers()
+                    .AddJsonOptions(opt => 
+                    {
+                        opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                    });
             services.AddRepositories();
             services.GetAppSettingsValues(Configuration);
             services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");

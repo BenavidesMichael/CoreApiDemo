@@ -10,6 +10,7 @@ namespace CoreApiDemo.Infrastructure
             services.AddTransient<IAuthRepository, AuthRepository>();
             services.AddTransient<IGenreRepository, GenreRepository>();
             services.AddTransient<ITheaterRepository, TheaterRepository>();
+            services.AddTransient<IMovieRepository, MovieRepository>();
             return services;
         }
     }
