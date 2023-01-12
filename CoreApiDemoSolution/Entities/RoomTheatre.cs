@@ -9,6 +9,6 @@
         public int TheaterId { get; set; }
         public Theater Theater { get; set; }
 
-        public HashSet<Movie> Movies { get; set; }
+        public IEnumerable<Movie> Movies { get; set; }
     }
 }

@@ -1,3 +1,5 @@
+using CoreApiDemo.Infrastructure;
+
 namespace CoreApiDemo
 {
     public class Program
@@ -12,6 +14,7 @@ namespace CoreApiDemo
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .ConfigureSerilog();
     }
 }

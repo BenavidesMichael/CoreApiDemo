@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string Biography { get; set; }
 
-        public HashSet<ActorMovie> ActorMovies { get; set; }
+        public IEnumerable<ActorMovie> ActorMovies { get; set; }
     }
 }

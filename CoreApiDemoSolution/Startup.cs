@@ -1,7 +1,6 @@
 using CoreApiDemo.Infrastructure;
-using Microsoft.Extensions.Options;
+using CoreApiDemo.Models;
 using System.Reflection;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace CoreApiDemo
@@ -23,7 +22,7 @@ namespace CoreApiDemo
             services.AddHttpContextAccessor();
             services.AddCorsExtention();
             services.AddControllers()
-                    .AddJsonOptions(opt => 
+                    .AddJsonOptions(opt =>
                     {
                         opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                     });
