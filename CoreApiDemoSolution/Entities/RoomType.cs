@@ -1,6 +1,6 @@
 ﻿namespace CoreApiDemo.Entities
 {
-    public enum TypeRoomTheatre
+    public enum RoomType
     {
         DeuxD = 1,
         TroisD = 2,

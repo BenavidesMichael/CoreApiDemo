@@ -9,9 +9,14 @@ namespace CoreApiDemo.Entities.Configuration
         {
             actor.HasKey(x => x.Id);
 
-            actor.Property(n => n.Name)
+            actor.Property(n => n.FirstName)
                     .IsRequired()
-                    .HasMaxLength(150);
+                    .HasMaxLength(50);
+
+            actor.Property(n => n.FirstName)
+                   .IsRequired()
+                   .HasMaxLength(50);
+
         }
     }
 }

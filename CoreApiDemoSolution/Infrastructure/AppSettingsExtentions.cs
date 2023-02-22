@@ -6,7 +6,7 @@ namespace CoreApiDemo.Infrastructure
     {
         public static IServiceCollection GetAppSettingsValues(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<SettingsConfig>(opt => configuration.GetSection("SettingsConfig").Bind(opt));
+            services.Configure<JWTOptions>(configuration.GetSection(JWTOptions.JWTSetting));
             return services;
         }
     }

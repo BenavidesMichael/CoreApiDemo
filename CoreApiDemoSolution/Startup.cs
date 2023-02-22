@@ -1,5 +1,4 @@
 using CoreApiDemo.Infrastructure;
-using CoreApiDemo.Models;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -21,14 +20,13 @@ namespace CoreApiDemo
             services.AddIdentity(Configuration);
             services.AddHttpContextAccessor();
             services.AddCorsExtention();
-            services.AddControllers()
-                    .AddJsonOptions(opt =>
-                    {
-                        opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                    });
             services.AddRepositories();
             services.GetAppSettingsValues(Configuration);
             services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+            services.AddControllers()
+                .AddJsonOptions(opt => {
+                    opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                });
         }
 
 
@@ -41,11 +39,8 @@ namespace CoreApiDemo
             }
 
             app.UseHttpsRedirection();
-
-            app.UseRouting();
-
             app.UseCors();
-
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
 

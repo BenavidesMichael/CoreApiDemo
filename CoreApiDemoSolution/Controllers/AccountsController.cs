@@ -26,7 +26,7 @@ namespace CoreApiDemo.Controllers
             var isCorrect = await _authRepository.IsLoginAccesCorrectAsync(model);
 
             if (!isCorrect)
-                return Unauthorized();
+                return BadRequest("Login/Password Wrong");
 
             return Ok(await _authRepository.LoginAsync(model.Email));
         }
@@ -38,20 +38,24 @@ namespace CoreApiDemo.Controllers
         {
             var result = await _authRepository.RegisterAsync(model);
 
-            if (!result.Succeeded)
-                return BadRequest(result.Errors);
+            if (result is null || !result.Succeeded)
+                return BadRequest(result?.Errors);
 
             return StatusCode(201);
         }
 
 
-        [HttpGet(nameof(RefreshToken))]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet(nameof(RefreshToken))]
         [SwaggerOperation(Summary = "Refresh Token", Description = "Refresh Token")]
-        public async Task<ActionResult<AuthResponse>> RefreshToken()
+        public async Task<ActionResult<Tokens>> RefreshToken()
         {
-            var emailClaim = HttpContext.User.Claims.Where(x => x.Type == "email").FirstOrDefault();
-            return Ok(await _authRepository.LoginAsync(emailClaim.Value));
+            var result = await _authRepository.RefreshToken();
+
+            if (result is null)
+                return Unauthorized();
+
+            return Ok(result);
         }
     }
 }

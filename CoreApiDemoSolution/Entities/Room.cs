@@ -1,10 +1,10 @@
 ﻿namespace CoreApiDemo.Entities
 {
-    public class RoomTheatre
+    public class Room
     {
         public int Id { get; set; }
         public decimal Price { get; set; }
-        public TypeRoomTheatre TypeRoomTheatre { get; set; }
+        public RoomType RoomType { get; set; }
 
         public int TheaterId { get; set; }
         public Theater Theater { get; set; }

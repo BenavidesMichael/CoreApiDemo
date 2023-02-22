@@ -5,14 +5,6 @@ namespace CoreApiDemo.Models
     public class Register
     {
         [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-
-        public int Age { get; set; }
-
-        [Required]
         public string UserName { get; set; }
 
         [Required]

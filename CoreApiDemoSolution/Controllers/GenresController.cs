@@ -1,4 +1,6 @@
 ﻿using CoreApiDemo.Contracts;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreApiDemo.Controllers
@@ -14,8 +16,8 @@ namespace CoreApiDemo.Controllers
             this._genreRepository = genreRepository;
         }
 
-
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<Models.Genre>>> GetAllGenres()
         {
             return Ok(await _genreRepository.GetAllGenres());

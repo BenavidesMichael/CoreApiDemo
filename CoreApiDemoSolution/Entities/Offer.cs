@@ -1,6 +1,6 @@
 ﻿namespace CoreApiDemo.Entities
 {
-    public class TheaterOffer
+    public class Offer
     {
         public int Id { get; set; }
         public DateTime BeginDate { get; set; }

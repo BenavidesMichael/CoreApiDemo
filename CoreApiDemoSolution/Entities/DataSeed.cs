@@ -16,14 +16,14 @@ namespace CoreApiDemo.Entities
 
             modelBuilder.Entity<Genre>().HasData(acción, animación, comedia, cienciaFicción, drama);
 
-            var tomHolland = new Actor() { Id = 1, Name = "Tom Holland", Birthdate = new DateTime(1996, 6, 1), Biography = "Thomas Stanley Holland (Kingston upon Thames, Londres; 1 de junio de 1996), conocido simplemente como Tom Holland, es un actor, actor de voz y bailarín británico." };
-            var samuelJackson = new Actor() { Id = 2, Name = "Samuel L. Jackson", Birthdate = new DateTime(1948, 12, 21), Biography = "Samuel Leroy Jackson (Washington D. C., 21 de diciembre de 1948), conocido como Samuel L. Jackson, es un actor y productor de Theater, televisión y teatro estadounidense. Ha sido candidato al premio Óscar, a los Globos de Oro y al Premio del Sindicato de Actores, así como ganador de un BAFTA al mejor actor de reparto." };
-            var robertDowney = new Actor() { Id = 3, Name = "Robert Downey Jr.", Birthdate = new DateTime(1965, 4, 4), Biography = "Robert John Downey Jr. (Nueva York, 4 de abril de 1965) es un actor, actor de voz, productor y cantante estadounidense. Inició su carrera como actor a temprana edad apareciendo en varios filmes dirigidos por su padre, Robert Downey Sr., y en su infancia estudió actuación en varias academias de Nueva York." };
-            var chrisEvans = new Actor() { Id = 4, Name = "Chris Evans", Birthdate = new DateTime(1981, 06, 13) };
-            var laRoca = new Actor() { Id = 5, Name = "Dwayne Johnson", Birthdate = new DateTime(1972, 5, 2) };
-            var auliCravalho = new Actor() { Id = 6, Name = "Auli'i Cravalho", Birthdate = new DateTime(2000, 11, 22) };
-            var scarlettJohansson = new Actor() { Id = 7, Name = "Scarlett Johansson", Birthdate = new DateTime(1984, 11, 22) };
-            var keanuReeves = new Actor() { Id = 8, Name = "Keanu Reeves", Birthdate = new DateTime(1964, 9, 2) };
+            var tomHolland = new Actor() { Id = 1, FirstName = "Tom", LastName = "Holland", FullName = "Tom Holland", Birthdate = new DateTime(1996, 6, 1), Biography = "Thomas Stanley Holland (Kingston upon Thames, Londres; 1 de junio de 1996), conocido simplemente como Tom Holland, es un actor, actor de voz y bailarín británico." };
+            var samuelJackson = new Actor() { Id = 2, FirstName = "Samuel", LastName = "L. Jackson", FullName = "Samuel L. Jackson", Birthdate = new DateTime(1948, 12, 21), Biography = "Samuel Leroy Jackson (Washington D. C., 21 de diciembre de 1948), conocido como Samuel L. Jackson, es un actor y productor de Theater, televisión y teatro estadounidense. Ha sido candidato al premio Óscar, a los Globos de Oro y al Premio del Sindicato de Actores, así como ganador de un BAFTA al mejor actor de reparto." };
+            var robertDowney = new Actor() { Id = 3, FirstName = "Robert", LastName = "Downey Jr.", FullName = "Robert Downey Jr.", Birthdate = new DateTime(1965, 4, 4), Biography = "Robert John Downey Jr. (Nueva York, 4 de abril de 1965) es un actor, actor de voz, productor y cantante estadounidense. Inició su carrera como actor a temprana edad apareciendo en varios filmes dirigidos por su padre, Robert Downey Sr., y en su infancia estudió actuación en varias academias de Nueva York." };
+            var chrisEvans = new Actor() { Id = 4, FirstName = "Chris", LastName = "Evans", FullName = "Chris Evans", Birthdate = new DateTime(1981, 06, 13) };
+            var laRoca = new Actor() { Id = 5, FirstName = "Dwayne", LastName = "Johnson", FullName = "Dwayne Johnson", Birthdate = new DateTime(1972, 5, 2) };
+            var auliCravalho = new Actor() { Id = 6, FirstName = "Auli'i", LastName = "Cravalho", FullName = "Auli'i Cravalho", Birthdate = new DateTime(2000, 11, 22) };
+            var scarlettJohansson = new Actor() { Id = 7, FirstName = "Scarlett", LastName = "Johansson", FullName = "Scarlett Johansson", Birthdate = new DateTime(1984, 11, 22) };
+            var keanuReeves = new Actor() { Id = 8, FirstName = "Keanu", LastName = "Reeves", FullName = "Keanu Reeves", Birthdate = new DateTime(1964, 9, 2) };
 
             modelBuilder.Entity<Actor>().HasData(tomHolland, samuelJackson,
                             robertDowney, chrisEvans, laRoca, auliCravalho, scarlettJohansson, keanuReeves);
@@ -34,74 +34,74 @@ namespace CoreApiDemo.Entities
             var megacentro = new Theater() { Id = 3, Name = "Megacentro", Location = geometryFactory.CreatePoint(new Coordinate(-69.856309, 18.506662)) };
             var acropolis = new Theater() { Id = 4, Name = "Acropolis", Location = geometryFactory.CreatePoint(new Coordinate(-69.939248, 18.469649)) };
 
-            var agoraTheaterOffer = new TheaterOffer { Id = 1, TheaterId = agora.Id, BeginDate = DateTime.Today, EndDate = DateTime.Today.AddDays(7), Discount = 10 };
+            var agoraTheaterOffer = new Offer { Id = 1, TheaterId = agora.Id, BeginDate = DateTime.Today, EndDate = DateTime.Today.AddDays(7), Discount = 10 };
 
-            var RoomTheatre2DAgora = new RoomTheatre()
+            var RoomTheatre2DAgora = new Room()
             {
                 Id = 1,
                 TheaterId = agora.Id,
                 Price = 220,
-                TypeRoomTheatre = TypeRoomTheatre.DeuxD
+                RoomType = RoomType.DeuxD
             };
-            var RoomTheatre3DAgora = new RoomTheatre()
+            var RoomTheatre3DAgora = new Room()
             {
                 Id = 2,
                 TheaterId = agora.Id,
                 Price = 320,
-                TypeRoomTheatre = TypeRoomTheatre.TroisD
+                RoomType = RoomType.TroisD
             };
 
-            var RoomTheatre2DSambil = new RoomTheatre()
+            var RoomTheatre2DSambil = new Room()
             {
                 Id = 3,
                 TheaterId = sambil.Id,
                 Price = 200,
-                TypeRoomTheatre = TypeRoomTheatre.DeuxD
+                RoomType = RoomType.DeuxD
             };
-            var RoomTheatre3DSambil = new RoomTheatre()
+            var RoomTheatre3DSambil = new Room()
             {
                 Id = 4,
                 TheaterId = sambil.Id,
                 Price = 290,
-                TypeRoomTheatre = TypeRoomTheatre.TroisD
+                RoomType = RoomType.TroisD
             };
 
 
-            var RoomTheatre2DMegacentro = new RoomTheatre()
+            var RoomTheatre2DMegacentro = new Room()
             {
                 Id = 5,
                 TheaterId = megacentro.Id,
                 Price = 250,
-                TypeRoomTheatre = TypeRoomTheatre.DeuxD
+                RoomType = RoomType.DeuxD
             };
-            var RoomTheatre3DMegacentro = new RoomTheatre()
+            var RoomTheatre3DMegacentro = new Room()
             {
                 Id = 6,
                 TheaterId = megacentro.Id,
                 Price = 330,
-                TypeRoomTheatre = TypeRoomTheatre.TroisD
+                RoomType = RoomType.TroisD
             };
-            var RoomTheatreImaxMegacentro = new RoomTheatre()
+            var RoomTheatreImaxMegacentro = new Room()
             {
                 Id = 7,
                 TheaterId = megacentro.Id,
                 Price = 450,
-                TypeRoomTheatre = TypeRoomTheatre.Imax
+                RoomType = RoomType.Imax
             };
 
-            var RoomTheatre2DAcropolis = new RoomTheatre()
+            var RoomTheatre2DAcropolis = new Room()
             {
                 Id = 8,
                 TheaterId = acropolis.Id,
                 Price = 250,
-                TypeRoomTheatre = TypeRoomTheatre.DeuxD
+                RoomType = RoomType.DeuxD
             };
 
-            var acropolisTheaterOffer = new TheaterOffer { Id = 2, TheaterId = acropolis.Id, BeginDate = DateTime.Today, EndDate = DateTime.Today.AddDays(5), Discount = 15 };
+            var acropolisTheaterOffer = new Offer { Id = 2, TheaterId = acropolis.Id, BeginDate = DateTime.Today, EndDate = DateTime.Today.AddDays(5), Discount = 15 };
 
             modelBuilder.Entity<Theater>().HasData(acropolis, sambil, megacentro, agora);
-            modelBuilder.Entity<TheaterOffer>().HasData(acropolisTheaterOffer, agoraTheaterOffer);
-            modelBuilder.Entity<RoomTheatre>().HasData(RoomTheatre2DMegacentro, RoomTheatre3DMegacentro, RoomTheatreImaxMegacentro, RoomTheatre2DAcropolis, RoomTheatre2DAgora, RoomTheatre3DAgora, RoomTheatre2DSambil, RoomTheatre3DSambil);
+            modelBuilder.Entity<Offer>().HasData(acropolisTheaterOffer, agoraTheaterOffer);
+            modelBuilder.Entity<Room>().HasData(RoomTheatre2DMegacentro, RoomTheatre3DMegacentro, RoomTheatreImaxMegacentro, RoomTheatre2DAcropolis, RoomTheatre2DAgora, RoomTheatre3DAgora, RoomTheatre2DSambil, RoomTheatre3DSambil);
 
 
             var avengers = new Movie()
@@ -117,8 +117,8 @@ namespace CoreApiDemo.Entities
             var GenreIdPropiedad = "GenresId";
             var MovieIdPropiedad = "MoviesId";
 
-            var entidadRoomTheatreMovie = "MovieRoomTheatre";
-            var RoomTheatreIdPropiedad = "RoomTheatresId";
+            var entidadRoomTheatreMovie = "MovieRoom";
+            var RoomTheatreIdPropiedad = "RoomsId";
 
             modelBuilder.Entity(entidadGenreMovie).HasData(
                 new Dictionary<string, object> { [GenreIdPropiedad] = acción.Id, [MovieIdPropiedad] = avengers.Id },

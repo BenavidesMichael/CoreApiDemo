@@ -5,19 +5,18 @@ using System.Reflection;
 
 namespace CoreApiDemo.Entities
 {
-    public class NetCoreApiDemoContext : IdentityDbContext
+    public class NetCoreApiDemoContext : IdentityDbContext<Person>
     {
         public NetCoreApiDemoContext(DbContextOptions<NetCoreApiDemoContext> options)
             : base(options)
         { }
 
-
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Theater> Theatres { get; set; }
-        public DbSet<TheaterOffer> TheaterOffers { get; set; }
-        public DbSet<RoomTheatre> RoomTheatres { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<Room> Rooms { get; set; }
         public DbSet<ActorMovie> ActorMovies { get; set; }
 
 

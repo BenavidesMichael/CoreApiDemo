@@ -9,9 +9,9 @@ namespace CoreApiDemo.Entities.Configuration
         {
             theater.HasKey(x => x.Id);
 
-            theater.HasOne(t => t.TheaterOffer)
+            theater.HasOne(t => t.Offer)
                     .WithOne(i => i.Theater)
-                    .HasForeignKey<TheaterOffer>(t => t.TheaterId);
+                    .HasForeignKey<Offer>(t => t.TheaterId);
             
             theater.Property(n => n.Name).IsRequired();
         }

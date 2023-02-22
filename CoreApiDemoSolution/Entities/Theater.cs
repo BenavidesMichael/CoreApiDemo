@@ -8,7 +8,7 @@ namespace CoreApiDemo.Entities
         public string Name { get; set; }
         public Point Location { get; set; }
 
-        public TheaterOffer TheaterOffer { get; set; }
-        public IEnumerable<RoomTheatre> RoomTheatres { get; set; }
+        public Offer Offer { get; set; }
+        public IEnumerable<Room> Rooms { get; set; }
     }
 }
